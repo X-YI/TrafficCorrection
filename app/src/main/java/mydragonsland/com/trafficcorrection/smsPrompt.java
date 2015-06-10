@@ -54,17 +54,20 @@ public class smsPrompt extends Activity {
             String regex = "剩余(\\d+)KB";
             Pattern p = Pattern.compile(regex);
             String[] words = p.split(s);
-            String[] words2 = p.split(",");
+            String regex2 = ",";
+            Pattern p2 = Pattern.compile(regex2);
+            String[] words2 = p2.split(s);
+
             String wholeWord = null;
             for (String word : words2) {
                 wholeWord += word + "\r\n";
             }
 
-            String s2 = null;
+            String s2 = s;
             for (String word : words) {
                 Log.d("Regex", word);
-                if (s.contains(word)) {
-                    s2 = s.replace(word, "");
+                if (s2.contains(word)) {
+                    s2 = s2.replace(word, "");
                 }
             }
 
