@@ -51,6 +51,8 @@ public class smsPrompt extends Activity {
                 s += message;
             }
 
+            if (!s.contains("尊敬的客户"))
+                return;
             String regex = "剩余(\\d+)KB";
             Pattern p = Pattern.compile(regex);
             String[] words = p.split(s);
